@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+	<title></title>
+</head>
+<script src="common/js/require.js"></script>
+<script src="module/jceditor.js"></script>
+<body>
+<script type="text/javascript">
+	
+	JCEditor.create({show:true},function(e){
+		editor = e;
+	});
+
+
+	JCEditor.create({show:true},function(e){
+		editor2= e;
+	});
+
+
+	function getConfig () {
+		// body...
+		console.log(editor.getConfig());
+	}
+
+	function getBrwoserType () {
+		// body...
+		console.log(editor2.getBrwoserType());
+	}
+
+
+</script>
+<input type="button" value="클릭" onclick="getConfig()" />
+<input type="button" value="클릭" onclick="getBrwoserType()" />
+</body>
+</html>
