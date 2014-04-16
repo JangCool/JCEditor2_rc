@@ -4,11 +4,14 @@ define(["jcesel","module/util/browser"],
  function (_j,browser) { 
 
     var _jel = _j("body input");
+    console.log(_jel.val("aaa"))
+
     _jel.each(function(i,el){
         console.log(i)   
-        console.log(el.value)   
+        console.log(_j(el).val())   
 
     });
+
     function Editor (config) {
         this.config = config;
     };
