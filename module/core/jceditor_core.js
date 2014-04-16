@@ -2,7 +2,13 @@
 /* module/util/browser.js */
 define(["jcesel","module/util/browser"],
  function (_j,browser) { 
-    console.log(_j("aaa","aa").constructor);
+
+    var _jel = _j("body input");
+    _jel.each(function(i,el){
+        console.log(i)   
+        console.log(el.value)   
+
+    });
     function Editor (config) {
         this.config = config;
     };
