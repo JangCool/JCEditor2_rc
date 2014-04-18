@@ -1,11 +1,16 @@
 /*
 	본 셀렉터는 jQuery 및 문학청년님의 simplejQuery Tip, Sizzle Engine을 이용하여 
-	이지윅 에디터 조작에 필요한 기능만 추출하여 작성하였음.
+	이지윅 에디터 개발에 필요한 기능만 추출하여 작성하였음.
 	jQuery : http://www.jQuery.com
 	Sizzle : http://sizzlejs.com/
 	문학청년 : http://youngman.kr/
 */
 (function(window){
+
+	var jEventProxy = function(e) {
+		var crossEvent = e ? e : global.event;
+		jEventProxy.callback(crossEvent);
+	}
 
 	var jceSelector = function(selector,context){
 
@@ -27,7 +32,15 @@
 
 			if ((typeof selector != "string")) {
 
-				if(selector.hasOwnProperty("length")){
+				var hasOwnProperty = false;
+				//IE9 이하에서는 document Object 는 hasOwnProperty 지원 안함.
+				if(!selector.hasOwnProperty){
+					hasOwnProperty = Object.prototype.hasOwnProperty.call(selector,"length");
+				}else{
+					hasOwnProperty = selector.hasOwnProperty("length");
+				}
+
+				if(hasOwnProperty){
 					this.elems = selector;
 				}else if(selector.nodeType){
 					this.elems.push(selector) ;
@@ -128,14 +141,16 @@
 		},
 
 		show : function() {
+
 			this.each(function(i) {
-				this.style.display = "";
+				this.style.display = "block";
 			});
 			
 			return this;
 		},
 
 		hide : function() {
+
 			this.each(function(i) {
 				this.style.display = "none";
 			});
@@ -144,19 +159,225 @@
 		},
 
 		remove : function() {
+
 			this.each(function(i) {
 				this.parentNode.removeChild(this);
 			});
 			
 			return this;
-		}
+		},
+
+
+		/**
+		* A.appendTo(B)
+		* A 엘리먼트가 B 엘리먼트 안쪽(자식노드의) 마지막노드로 이동한다.
+		* ex)_j('#aaa').insertBefore(_j("#cccc"));
+		*
+		* @param obj DOM 객체 또는 _j객체
+		* @author 장진철 zerocooldog@pionnet.co.kr
+		**/
+		appendTo : function(obj) {
+
+			this.each(function(i,el) {
+
+				if(obj.constructor == jceSelector){
+					obj.append(this);
+				} else if(obj.nodeType) {
+					obj.appendChild(this);
+				}
+			});
+			
+			return this;
+		},
+
+		/**
+		* A.prependTo(B)
+		* A 엘리먼트가 B 엘리먼트 안으로(자식노드의) 첫번째노드로 이동한다.
+		* ex)_j('#aaa').prependTo(_j("#cccc"));
+		*
+		* @param obj DOM 객체 또는 _j객체
+		* @author 장진철 zerocooldog@pionnet.co.kr
+		**/
+		prependTo : function(obj) {
+
+			this.each(function(i,el) {
+
+				if(obj.constructor == jceSelector){
+					obj.prepend(this);
+				} else if(obj.nodeType) {
+					obj.insertBefore(this, obj.childNodes[0]);
+				}
+			});
+			
+			return this;
+		},
+
+
+		/**
+		* A.insertBefore(B)
+		* A 엘리먼트가 B 항목 앞으로 이동한다.
+		* ex)_j('#aaa').insertBefore(_j("#cccc"));
+		*
+		* @param obj DOM 객체 또는 _j객체
+		* @author 장진철 zerocooldog@pionnet.co.kr
+		**/
+		insertBefore : function(obj) {
+
+			if(this.length > 0) {
+
+				var elem = this.get(),
+					target = (obj.length == 1) ? obj.get(0) : _j(obj).get(0),
+					parent = (target[0].parentNode) ? target[0].parentNode : target[0].parentElement;
+
+				for (var i = 0,elemLength = elem.length; i < elemLength; i++) {
+					parent.insertBefore(elem[i], target[0]);
+				};
+
+			}
+			
+			return this;
+		},
+
+
+		/**
+		* A.insertAfter(B)
+		* A 엘리먼트가 B 항목 뒤로 이동한다.
+		* ex)_j('#aaa').insertAfter(_j("#cccc"));
+		*
+		* @param obj DOM 객체 또는 _j객체
+		* @author 장진철 zerocooldog@pionnet.co.kr
+		**/
+		insertAfter : function(obj) {
+
+			if(this.length > 0) {
+
+				var elem = this.get(),
+					target = (obj.length == 1) ? obj.get(0) : _j(obj).get(0),
+					parent = (target[0].parentNode) ? target[0].parentNode : target[0].parentElement;
+
+				for (var i = 0,elemLength = elem.length; i < elemLength; i++) {
+					parent.insertBefore(elem[i], target[0].nextSibling);
+				};
+
+			}
+			
+			return this;
+		},
+
+
+		/**
+		* A.append(B)
+		* B엘리먼트를 A 엘리먼트 안쪽(자식노드) 끝 부분에 붙인다.
+		* ex)_j('#aaa').append(_j("#cccc"));
+		*
+		* @param obj DOM 객체 또는 _j객체
+		* @author 장진철 zerocooldog@pionnet.co.kr
+		**/		
+		append : function(obj) {
+
+			this.each(function(i,el) {
+
+				if(typeof obj == "string") { 
+
+					this.innerHTML += obj;
+
+				} else if(obj.constructor == jceSelector){
+
+					if(obj.length > 0){
+						obj.each(function(i){
+							el.appendChild(this);
+						});
+					}
+
+				} else if(obj.nodeType) {
+					this.appendChild(obj);
+				}
+			});
+			
+			return this;
+		},		
+
+
+		/**
+		* A.prepend(B)
+		* B엘리먼트를 A 엘리먼트 안쪽(자식노드)  맨 앞 부분에 붙인다.
+		* ex)_j('#aaa').prepend(_j("#cccc"));
+		*
+		* @param obj DOM 객체 또는 _j객체
+		* @author 장진철 zerocooldog@pionnet.co.kr
+		**/		
+		prepend : function(obj) {
+
+			this.each(function(i,el) {
+
+				if(typeof obj == "string") { 
+					this.innerHTML += obj;
+
+				} else if(obj.constructor == jceSelector){
+
+					if(obj.length > 0) {
+						obj.each(function(i){
+							el.insertBefore(this, el.childNodes[0]);
+						});
+					}
+
+				} else if(obj.nodeType) {
+					this.insertBefore(obj, this.childNodes[0]);
+				}
+			});
+			
+			return this;
+		},	
+		
+
+		/**
+		* 이벤트 등록
+		* @param eventType 이벤트 명 on 글자를 붙이지 않는다 ex) click,mouseout
+		* @param callback 이벤트 진행 시 실행 할 함수 
+		*/
+		bind : function(eventType, callback) {
+			if(typeof eventType == "string" && typeof callback == "function") {
+				jEventProxy.callback = callback;
+				
+				this.each(function(i) {
+					(function(target, type) {
+						if(target.addEventListener) {
+							target.addEventListener(type, jEventProxy, false);
+						} else if(target.attachEvent) {
+							target.attachEvent( "on" + type, jEventProxy);
+						}
+					})(this, eventType.toLowerCase());
+				});
+			}
+			
+			return this;
+		},
+
+
+		/**
+		* 이벤트 제거
+		* @param eventType 이벤트 명 on 글자를 붙이지 않는다 ex) click,mouseout
+		*	
+		*/
+		unbind : function(eventType) {
+
+			if(typeof eventType == "string") {
+				this.each(function(i) {
+					(function(target, type) {
+						if(target.detachEvent) {
+							target.detachEvent("on" + type, jEventProxy);
+						} else {
+							target.removeEventListener(type, jEventProxy);
+						}
+					})(this, eventType.toLowerCase());
+				});
+			}
+			
+			return this;
+		}		
 	};
 
-
-	// Give the init function the jQuery prototype for later instantiation
 	jceSelector.fn.init.prototype = jceSelector.fn;
-
-
 
 	if ( typeof window === "object" && typeof window.document === "object" ) {
 		window._j = jceSelector;
