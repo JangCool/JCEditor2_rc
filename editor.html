@@ -6,17 +6,26 @@
 </head>
 <script src="common/js/require.js"></script>
 <script src="module/jceditor.js"></script>
+<!-- <script src="common/js/sizzle.js"></script>
+<script src="module/core/jceditor_selector.js"></script> -->
+
+
 <body>
 
-<div class="bbb">
+<div class="bbb">111
 	
 <input id="aaa" type="button" value="클릭" onclick="getConfig()" />
-<input type="button" value="클릭" onclick="getBrwoserType()" />
+<input id="abc" type="button" value="클릭" onclick="getBrwoserType()" />
+
+</div>
+<div class="cccc">222
+	
 
 </div>
 
 <script type="text/javascript">
-	
+   // $(".bbb").prependTo($(".cccc"));
+  //  _j(".bbb").prependTo(_j(".cccc"));
 	JCEditor.create({show:true},function(e){
 		editor = e;
 	});
