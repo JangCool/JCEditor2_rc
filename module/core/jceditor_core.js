@@ -1,9 +1,14 @@
 /* module/core/jceditor_core.js */
 /* module/util/browser.js */
-define(["jcesel","module/util/browser"],
- function (_j,browser) { 
+define(
+    [
+        "jcesel",
+        "module/util/browser",
+        "module/util/util"
+    ],
+ function (_j,browser,util) { 
 
-    var _jel = _j("body input");
+    var _jel = _j(".bbb");
     console.log(_jel.val("aaa"))
 
     _jel.each(function(i,el){
@@ -11,6 +16,21 @@ define(["jcesel","module/util/browser"],
         console.log(_j(el).val())   
 
     });
+
+
+
+
+    _jel.prependTo(_j(".cccc"));
+
+    _j("#aaa").bind("click",function(){
+alert("zzz")
+    });
+
+    _j("#abc").bind("click",function(){
+alert("abc")
+    });
+
+    _j("#aaa").unbind("click");
 
     function Editor (config) {
         this.config = config;
