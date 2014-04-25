@@ -1,0 +1,187 @@
+﻿@CHARSET "UTF-8";
+/*
+ *sprite 기법 ,각 버튼마다 이미지를 만들어 불필요하게 네트워크통신을 여러 번 하지 않고 
+ *하나의 이미지로 한번만 네트워크 통신 후  좌표를 구하여 처리한다. (버튼 모음).
+ */
+
+.jceditor-formatblock-btn{width:65px;}
+.jceditor-formatblock-btn-off{width:65px; background:url(images/btnset.gif) -0px -63px no-repeat; }
+.jceditor-formatblock-btn-on{width:65px; background:url(images/btnset.gif) -0px -84px no-repeat; }
+.jceditor-formatblock-btn-disabled{width:65px; background:url(images/btnset.gif) -0px -105px no-repeat; }
+
+
+.jceditor-fontfamily-btn{width:70px;}
+.jceditor-fontfamily-btn-off{width:70px; background:url(images/btnset.gif) -65px -63px no-repeat; }
+.jceditor-fontfamily-btn-on{width:70px; background:url(images/btnset.gif) -65px -84px no-repeat; }
+.jceditor-fontfamily-btn-disabled{width:70px; background:url(images/btnset.gif) -65px -105px no-repeat; }
+
+.jceditor-fontsize-btn{width:45px;}
+.jceditor-fontsize-btn-off{width:45px; background:url(images/btnset.gif) -135px -63px no-repeat; }
+.jceditor-fontsize-btn-on{width:45px;background:url(images/btnset.gif) -135px -84px no-repeat; }
+.jceditor-fontsize-btn-disabled{width:45px;background:url(images/btnset.gif) -135px -105px no-repeat; }
+
+.jceditor-default-btn{width:21px;}
+
+.jceditor-bold-btn-off {width:21px; background:url(images/btnset.gif) -180px -63px no-repeat; }
+.jceditor-bold-btn-on {width:21px; background:url(images/btnset.gif) -180px -84px no-repeat; }
+.jceditor-bold-btn-disabled {width:21px; background:url(images/btnset.gif) -180px -105px no-repeat; }
+
+.jceditor-underline-btn-off {width:21px; background:url(images/btnset.gif) -201px -63px no-repeat; }
+.jceditor-underline-btn-on {width:21px; background:url(images/btnset.gif) -201px -84px no-repeat; }
+.jceditor-underline-btn-disabled {width:21px; background:url(images/btnset.gif) -201px -105px no-repeat; }
+
+.jceditor-italic-btn-off {width:21px; background:url(images/btnset.gif) -222px -63px no-repeat; }
+.jceditor-italic-btn-on {width:21px; background:url(images/btnset.gif) -222px -84px no-repeat; }
+.jceditor-italic-btn-disabled {width:21px; background:url(images/btnset.gif) -222px -105px no-repeat; }
+
+.jceditor-strikethrough-btn-off {width:21px; background:url(images/btnset.gif) -243px -63px no-repeat; }
+.jceditor-strikethrough-btn-on {width:21px; background:url(images/btnset.gif) -243px -84px no-repeat; }
+.jceditor-strikethrough-btn-disabled {width:21px; background:url(images/btnset.gif) -243px -105px no-repeat; }
+
+.jceditor-forecolor-btn-off {width:21px; background:url(images/btnset.gif) -264px -63px no-repeat; }
+.jceditor-forecolor-btn-on {width:21px; background:url(images/btnset.gif) -264px -84px no-repeat; }
+.jceditor-forecolor-btn-disabled {width:21px; background:url(images/btnset.gif) -264px -105px no-repeat; }
+
+.jceditor-backcolor-btn-off {width:22px; background:url(images/btnset.gif) -285px -63px no-repeat; }
+.jceditor-backcolor-btn-on {width:22px; background:url(images/btnset.gif) -285px -84px no-repeat; }
+.jceditor-backcolor-btn-disabled {width:22px; background:url(images/btnset.gif) -285px -105px no-repeat; }
+
+
+.jceditor-justifyleft-btn-off {width:21px; background:url(images/btnset.gif) -307px -63px no-repeat; }
+.jceditor-justifyleft-btn-on {width:21px; background:url(images/btnset.gif) -307px -84px no-repeat; }
+.jceditor-justifyleft-btn-disabled {width:21px; background:url(images/btnset.gif) -307px -105px no-repeat; }
+
+.jceditor-justifycenter-btn-off {width:21px; background:url(images/btnset.gif) -328px -63px no-repeat; }
+.jceditor-justifycenter-btn-on {width:21px; background:url(images/btnset.gif) -328px -84px no-repeat; }
+.jceditor-justifycenter-btn-disabled {width:21px; background:url(images/btnset.gif) -328px -105px no-repeat; }
+
+.jceditor-justifyright-btn-off {width:21px; background:url(images/btnset.gif) -349px -63px no-repeat; }
+.jceditor-justifyright-btn-on {width:21px; background:url(images/btnset.gif) -349px -84px no-repeat; }
+.jceditor-justifyright-btn-disabled {width:21px; background:url(images/btnset.gif) -349px -105px no-repeat; }
+
+.jceditor-justifyfull-btn-off {width:22px; background:url(images/btnset.gif) -370px -63px no-repeat; }
+.jceditor-justifyfull-btn-on {width:22px; background:url(images/btnset.gif) -370px -84px no-repeat; }
+.jceditor-justifyfull-btn-disabled {width:22px; background:url(images/btnset.gif) -370px -105px no-repeat; }
+
+.jceditor-insertorderedlist-btn-off {width:21px; background:url(images/btnset.gif) -392px -63px no-repeat; }
+.jceditor-insertorderedlist-btn-on {width:21px; background:url(images/btnset.gif) -392px -84px no-repeat; }
+.jceditor-insertorderedlist-btn-disabled {width:21px; background:url(images/btnset.gif) -392px -105px no-repeat; }
+
+.jceditor-insertunorderedlist-btn-off {width:22px; background:url(images/btnset.gif) -413px -63px no-repeat; }
+.jceditor-insertunorderedlist-btn-on {width:22px; background:url(images/btnset.gif) -413px -84px no-repeat; }
+.jceditor-insertunorderedlist-btn-disabled {width:22px; background:url(images/btnset.gif) -413px -105px no-repeat; }
+
+.jceditor-outdent-btn-off {width:21px; background:url(images/btnset.gif) -435px -63px no-repeat; }
+.jceditor-outdent-btn-on {width:21px; background:url(images/btnset.gif) -435px -84px no-repeat; }
+.jceditor-outdent-btn-disabled {width:21px; background:url(images/btnset.gif) -435px -105px no-repeat; }
+
+.jceditor-indent-btn-off {width:22px; background:url(images/btnset.gif) -456px -63px no-repeat; }
+.jceditor-indent-btn-on {width:22px; background:url(images/btnset.gif) -456px -84px no-repeat; }
+.jceditor-indent-btn-disabled {width:22px; background:url(images/btnset.gif) -456px -105px no-repeat; }
+
+.jceditor-html-btn-off {width:32px; background:url(images/btnset.gif) -478px -63px no-repeat; }
+.jceditor-html-btn-on {width:32px; background:url(images/btnset.gif) -478px -84px no-repeat; }
+
+
+.jceditor-new-btn-off {width:22px; background:url(images/btnset.gif) -0px -0px no-repeat; }
+.jceditor-new-btn-on {width:22px; background:url(images/btnset.gif) -0px -21px no-repeat; }
+.jceditor-new-btn-disabled {width:22px; background:url(images/btnset.gif) -0px -42px no-repeat; }
+
+
+.jceditor-undo-btn-off {width:21px; background:url(images/btnset.gif) -22px -0px no-repeat; }
+.jceditor-undo-btn-on {width:21px; background:url(images/btnset.gif) -22px -21px no-repeat; }
+.jceditor-undo-btn-disabled {width:21px; background:url(images/btnset.gif) -22px -42px no-repeat; }
+
+.jceditor-redo-btn-off {width:22px; background:url(images/btnset.gif) -43px -0px no-repeat; }
+.jceditor-redo-btn-on {width:22px; background:url(images/btnset.gif) -43px -21px no-repeat; }
+.jceditor-redo-btn-disabled {width:22px; background:url(images/btnset.gif) -43px -42px no-repeat; }
+
+
+.jceditor-cut-btn-off {width:21px; background:url(images/btnset.gif) -65px -0px no-repeat; }
+.jceditor-cut-btn-on {width:21px; background:url(images/btnset.gif) -65px -21px no-repeat; }
+.jceditor-cut-btn-disabled {width:21px; background:url(images/btnset.gif) -65px -42px no-repeat; }
+
+.jceditor-copy-btn-off {width:21px; background:url(images/btnset.gif) -86px -0px no-repeat; }
+.jceditor-copy-btn-on {width:21px; background:url(images/btnset.gif) -86px -21px no-repeat; }
+.jceditor-copy-btn-disabled {width:21px; background:url(images/btnset.gif) -86px -42px no-repeat; }
+
+.jceditor-paste-btn-off {width:21px; background:url(images/btnset.gif) -107px -0px no-repeat; }
+.jceditor-paste-btn-on {width:21px; background:url(images/btnset.gif) -107px -21px no-repeat; }
+.jceditor-paste-btn-disabled {width:21px; background:url(images/btnset.gif) -107px -42px no-repeat; }
+
+
+.jceditor-selectall-btn-off {width:22px; background:url(images/btnset.gif) -128px -0px no-repeat; }
+.jceditor-selectall-btn-on {width:22px; background:url(images/btnset.gif) -128px -21px no-repeat; }
+.jceditor-selectall-btn-disabled {width:22px; background:url(images/btnset.gif) -128px -42px no-repeat; }
+
+
+.jceditor-subscript-btn-off {width:21px; background:url(images/btnset.gif) -150px -0px no-repeat; }
+.jceditor-subscript-btn-on {width:21px; background:url(images/btnset.gif) -150px -21px no-repeat; }
+.jceditor-subscript-btn-disabled {width:21px; background:url(images/btnset.gif) -150px -42px no-repeat; }
+
+.jceditor-superscript-btn-off {width:21px; background:url(images/btnset.gif) -171px -0px no-repeat; }
+.jceditor-superscript-btn-on {width:21px; background:url(images/btnset.gif) -171px -21px no-repeat; }
+.jceditor-superscript-btn-disabled {width:21px; background:url(images/btnset.gif) -171px -42px no-repeat; }
+
+
+.jceditor-removeformat-btn-off {width:22px; background:url(images/btnset.gif) -192px -0px no-repeat; }
+.jceditor-removeformat-btn-on {width:22px; background:url(images/btnset.gif) -192px -21px no-repeat; }
+.jceditor-removeformat-btn-disabled {width:22px; background:url(images/btnset.gif) -192px -42px no-repeat; }
+
+.jceditor-quotation-btn-off {width:21px; background:url(images/btnset.gif) -214px -0px no-repeat; }
+.jceditor-quotation-btn-on {width:21px; background:url(images/btnset.gif) -214px -21px no-repeat; }
+.jceditor-quotation-btn-disabled {width:21px; background:url(images/btnset.gif) -214px -42px no-repeat; }
+
+
+.jceditor-emoticon-btn-off {width:21px; background:url(images/btnset.gif) -235px -0px no-repeat; }
+.jceditor-emoticon-btn-on {width:21px; background:url(images/btnset.gif) -235px -21px no-repeat; }
+.jceditor-emoticon-btn-disabled {width:21px; background:url(images/btnset.gif) -235px -42px no-repeat; }
+
+
+.jceditor-scharacter-btn-off {width:21px; background:url(images/btnset.gif) -256px -0px no-repeat; }
+.jceditor-scharacter-btn-on {width:21px; background:url(images/btnset.gif) -256px -21px no-repeat; }
+.jceditor-scharacter-btn-disabled {width:21px; background:url(images/btnset.gif) -256px -42px no-repeat; }
+
+.jceditor-table-btn-off {width:21px; background:url(images/btnset.gif) -277px -0px no-repeat; }
+.jceditor-table-btn-on {width:21px; background:url(images/btnset.gif) -277px -21px no-repeat; }
+.jceditor-table-btn-disabled {width:21px; background:url(images/btnset.gif) -277px -42px no-repeat; }
+
+.jceditor-picture-btn-off {width:21px; background:url(images/btnset.gif) -298px -0px no-repeat; }
+.jceditor-picture-btn-on {width:21px; background:url(images/btnset.gif) -298px -21px no-repeat; }
+.jceditor-picture-btn-disabled {width:21px; background:url(images/btnset.gif) -298px -42px no-repeat; }
+
+.jceditor-flash-btn-off {width:21px; background:url(images/btnset.gif) -319px -0px no-repeat; }
+.jceditor-flash-btn-on {width:21px; background:url(images/btnset.gif) -319px -21px no-repeat; }
+.jceditor-flash-btn-disabled {width:21px; background:url(images/btnset.gif) -319px -42px no-repeat; }
+
+.jceditor-horizon-btn-off {width:22px; background:url(images/btnset.gif) -340px -0px no-repeat; }
+.jceditor-horizon-btn-on {width:22px; background:url(images/btnset.gif) -340px -21px no-repeat; }
+.jceditor-horizon-btn-disabled {width:22px; background:url(images/btnset.gif) -340px -42px no-repeat; }
+
+.jceditor-createlink-btn-off {width:21px; background:url(images/btnset.gif) -362px -0px no-repeat; }
+.jceditor-createlink-btn-on {width:21px; background:url(images/btnset.gif) -362px -21px no-repeat; }
+.jceditor-createlink-btn-disabled {width:21px; background:url(images/btnset.gif) -362px -42px no-repeat; }
+
+.jceditor-unlink-btn-off {width:22px; background:url(images/btnset.gif) -383px -0px no-repeat; }
+.jceditor-unlink-btn-on {width:22px; background:url(images/btnset.gif) -383px -21px no-repeat; }
+.jceditor-unlink-btn-disabled {width:22px; background:url(images/btnset.gif) -383px -42px no-repeat; }
+
+
+.jceditor-printline-btn-off {width:21px; background:url(images/btnset.gif) -405px -0px no-repeat; }
+.jceditor-printline-btn-on {width:21px; background:url(images/btnset.gif) -405px -21px no-repeat; }
+.jceditor-printline-btn-disabled {width:21px; background:url(images/btnset.gif) -405px -42px no-repeat; }
+
+
+.jceditor-preview-btn-off {width:21px; background:url(images/btnset.gif) -426px -0px no-repeat; }
+.jceditor-preview-btn-on {width:21px; background:url(images/btnset.gif) -426px -21px no-repeat; }
+.jceditor-preview-btn-disabled {width:21px; background:url(images/btnset.gif) -426px -42px no-repeat; }
+
+.jceditor-print-btn-off {width:22px; background:url(images/btnset.gif) -447px -0px no-repeat; }
+.jceditor-print-btn-on {width:22px; background:url(images/btnset.gif) -447px -21px no-repeat; }
+.jceditor-print-btn-disabled {width:22px; background:url(images/btnset.gif) -447px -42px no-repeat; }
+
+
+.jceditor-fullscreen-btn-off {width:22px; background:url(images/btnset.gif) -469px -0px no-repeat; }
+.jceditor-fullscreen-btn-on {width:22px; background:url(images/btnset.gif) -469px -21px no-repeat; }
+.jceditor-fullscreen-btn-disabled {width:22px; background:url(images/btnset.gif) -469px -42px no-repeat; }
+

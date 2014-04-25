@@ -67,6 +67,9 @@
 		get : function(idx){
 			return (idx) ? this.elems[idx] : this.elems;
 		},
+		eq : function(idx){
+			return this.get(idx);
+		},
 
 		size : function(){
 			return this.length;

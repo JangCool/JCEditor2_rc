@@ -119,7 +119,30 @@ define([
             }else{
                 return false;
             }
+        },
+
+        /**
+         * i18n 메세지에 {0},{1}... 항목 값을 대입한다.
+         *
+         * ex) i18n message js
+         *      i18n = {hello : "hi!!, {0} bye~"}
+         *      i18n(i18n.hello,"jangcool");
+         *      hi!!, jangcool bye~;
+         *
+         * @param value 체크할 값.
+         * @param value 체크할 값.
+         * @return String
+         */
+
+        i18n : function() {
+          var s = arguments[0];
+          for (var i = 1; i < arguments.length; i++) {       
+            var reg = new RegExp("\\{" + (i-1) + "\\}", "gm");             
+            s = s.replace(reg, arguments[i]);
+          }
+          return s;
         }
+    
     };
 
     /*
@@ -128,10 +151,72 @@ define([
     Util.num = {
 
     };
-    
 
-    Util.txt.prototype = Util.prototype;
+    Util.browser = {
 
-    return Util;
+        type : function(){
+
+            var browerAgent = navigator.userAgent;            
+            var browerType = ""; // 브라우져 종류
+            // 브라우져 종류 설정.
+            if (browerAgent.indexOf("Chrome") != -1) {
+                browerType = "Chrome";
+            } else if (browerAgent.indexOf("Firefox") != -1) {
+                browerType = "Firefox";
+            } else if (browerAgent.indexOf("Safari") != -1) {
+                browerType = "Safari";
+            } else if (browerAgent.indexOf("MSIE") != -1 || browerAgent.indexOf("rv:") != -1) {
+                browerType = "MSIE";
+            }else{
+                browerType = "Opera";       
+            }
+            
+            return browerType;   
+        },
+
+        version : function(){
+            var browerAgent = navigator.userAgent;            
+            var browerType = Util.browser.type();
+            var rv = -1; // Return value assumes failure.      
+            var ua = navigator.userAgent;
+            var re = null;
+            
+            if (browerType == "MSIE") {
+                
+                if (browerAgent.indexOf("rv:") != -1) {
+                    re = new RegExp("rv:([0-9]{1,}[\.0-9]{0,})");           
+                }else{
+                    re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");         
+                }
+                
+            } else {
+                re = new RegExp(browerType + "/([0-9]{1,}[\.0-9]{0,})");
+            }
+            if (re.exec(ua) != null) {
+                rv = parseFloat(RegExp.$1);
+            }
+
+            return rv;
+        },       
+
+        getLocale  : function(){
+
+            if ( navigator ) {
+                if ( navigator.language ) {
+                    return navigator.language;
+                }
+                else if ( navigator.browserLanguage ) {
+                    return navigator.browserLanguage;
+                }
+                else if ( navigator.systemLanguage ) {
+                    return navigator.systemLanguage;
+                }
+                else if ( navigator.userLanguage ) {
+                    return navigator.userLanguage;
+                }
+            }
+        }
+    }
+    return JCEditor.util = Util;
 
 });
