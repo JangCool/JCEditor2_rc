@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+.jceditor-container-div u, .jceditor-container-div span,.jceditor-container-div div,.jceditor-container-div object,.jceditor-container-div iframe,.jceditor-container-div h1,.jceditor-container-div h2,.jceditor-container-div h3,
+.jceditor-container-div h4,.jceditor-container-div h5,.jceditor-container-div h6,.jceditor-container-div p,.jceditor-container-div blockquote,.jceditor-container-div pre,.jceditor-container-div abbr,
+.jceditor-container-div acronym,.jceditor-container-div address,.jceditor-container-div big,.jceditor-container-div cite,.jceditor-container-div code,.jceditor-container-div del,.jceditor-container-div dfn,.jceditor-container-div em,
+.jceditor-container-div img,.jceditor-container-div ins,.jceditor-container-div kbd,.jceditor-container-div q,.jceditor-container-div s,.jceditor-container-div samp,.jceditor-container-div small,.jceditor-container-div strike,
+.jceditor-container-div strong,.jceditor-container-div sub,.jceditor-container-div sup,.jceditor-container-div tt,.jceditor-container-div var,.jceditor-container-div b,.jceditor-container-div u,.jceditor-container-div i,
+.jceditor-container-div center,.jceditor-container-div dl, .jceditor-container-div dt,.jceditor-container-div dd,.jceditor-container-div ol,.jceditor-container-div ul,.jceditor-container-div li,.jceditor-container-div fieldset,
+.jceditor-container-div form,.jceditor-container-div  label,.jceditor-container-div  legend,.jceditor-container-div table,.jceditor-container-div caption,
+.jceditor-container-div tbody,.jceditor-container-div tfoot,.jceditor-container-div thead,.jceditor-container-div tr,.jceditor-container-div th,.jceditor-container-div  td,.jceditor-container-div article,.jceditor-container-div aside,.jceditor-container-div canvas,.jceditor-container-div  details,.jceditor-container-div embed,
+.jceditor-container-div figure,.jceditor-container-div figcaption,.jceditor-container-div footer,.jceditor-container-div header,.jceditor-container-div hgroup,.jceditor-container-div menu,.jceditor-container-div nav,.jceditor-container-div output,.jceditor-container-div ruby,.jceditor-container-div section,
+.jceditor-container-div summary,.jceditor-container-div time,.jceditor-container-div mark,.jceditor-container-div audio,.jceditor-container-div textarea,
+.jceditor-container-div video {	margin: 0;	padding: 0;	border: none;	font-size: 100%;	font: normal;	vertical-align: baseline;line-height:100%;word-spacing: 0;width:auto;height:auto;}
+/* HTML5 display-role reset for older browsers */
+.jceditor-container-div article,.jceditor-container-div aside,.jceditor-container-div details,.jceditor-container-div  figcaption,.jceditor-container-div figure,.jceditor-container-div footer,.jceditor-container-div header,
+.jceditor-container-div hgroup,.jceditor-container-div menu,.jceditor-container-div nav,.jceditor-container-div section {display: block;}
+.jceditor-container-div ol, ul {	list-style: none;}
+.jceditor-container-div  blockquote, q {quotes: none;}
+.jceditor-container-div  blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}
+.jceditor-container-div  table {	border-collapse: collapse;	border-spacing: 0;}

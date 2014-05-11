@@ -3,26 +3,72 @@
 <meta charset="UTF-8">
 <head>
 	<title></title>
+	<style>
+		li{float:left;padding:40px}
+		.edit_drag{width:300px;height:200px;border: 1px solid black;}
+		.drag_btn {position:relative;  bottom:-100%; right:0; width:25px;height:14px;cursor: se-resize;float:right;}
+	</style>
 </head>
-<script src="common/js/require.js"></script>
-<script src="module/jceditor.js"></script>
+<script src="jceditor2/common/js/require.js"></script>
+<script src="jceditor2/module/jceditor.js"></script>
+<!-- <script src="common/js/sizzle.js"></script>
+<script src="module/core/jceditor_selector.js"></script> -->
+
+
 <body>
 
-<div class="bbb">
+
+<div style="background-color:none;width:3000px;height:400px;" align="left">
+<h1>
+</h1>
+<ul style="height:22px;float: left;">
+<li>
+	<textarea id="edit1">
+	왜 또 갑자기 글 쓸때 느려지지??...
+	</textarea>
+	<br />
+	<input type="button" value="내용가져오기" onclick="getContent()">
+	<input type="button" value="글자 길이" onclick="getContentLength()">
+</li>
+<li>
+</li>
+
+<li>
+	<textarea id="edit2">
+		<span style="font-family: 돋움; font-size: 10pt;"><table style="border-collapse: collapse;" cellSpacing="0" cellPadding="0" width="100%"><tbody><tr><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td></tr><tr><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td></tr><tr><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td></tr><tr><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td></tr><tr><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td><td style="border: 1px solid rgb(204, 204, 204); height: 20px;"></td></tr></tbody></table></span>
+	</textarea>
+<br />
+	<input type="button" value="내용가져오기" onclick="">
+	<input type="button" value="글자 길이" onclick="">
+</li>
+<li>
+</li>
+</ul>
+</div>
+
+
+<div id="edit1-jceditor-content-div" class="edit_drag"><iframe id="edit1-jceditor-edit-iframe" src="about:blank" frameborder="0" style="position:relative" class="jceditor-content-iframe"></iframe>
+<div id="edit1-jceditor-resizable-div" class="drag_btn">Drag</div></div><br />
+
+<div id="edit2-jceditor-content-div" class="edit_drag"><iframe id="edit2-jceditor-edit-iframe" src="about:blank" frameborder="0" style="position:relative" class="jceditor-content-iframe"></iframe>
+<div id="edit2-jceditor-resizable-div" class="drag_btn">Drag</div></div><br />
+<div class="bbb">111
 	
 <input id="aaa" type="button" value="클릭" onclick="getConfig()" />
-<input type="button" value="클릭" onclick="getBrwoserType()" />
+<input id="abc" type="button" value="클릭2" onclick="getConfig2()" />
+<input id="abc" type="button" value="클릭" onclick="getBrwoserType()" />
 
 </div>
 
 <script type="text/javascript">
-	
-	JCEditor.create({show:true},function(e){
+   // $(".bbb").prependTo($(".cccc"));
+  //  _j(".bbb").prependTo(_j(".cccc"));
+	JCEditor.create("edit1","","",{show:true,charset : "base"},function(e){
 		editor = e;
 	});
 
 
-	JCEditor.create({show:true},function(e){
+	JCEditor.create("edit2","","",{show:true},function(e){
 		editor2= e;
 	});
 
@@ -32,6 +78,11 @@
 		console.log(editor.getConfig());
 	}
 
+	function getConfig2 () {
+		// body...
+		console.log(editor2.getConfig());
+	}
+	
 	function getBrwoserType () {
 		// body...
 		console.log(editor2.getBrwoserType());
