@@ -102,10 +102,10 @@ JCEditor.create = function (textarea,width,height,config,callback) {
     	charset = "base";
     }
 
-   	if(charset.indexOf("-") > 0 ){
-   		charset = charset.substr("0",charset.indexOf("-"));
-   	}
-
+    if(charset.indexOf("-") > 0 ){
+   	charset = charset.substr("0",charset.indexOf("-"));
+    }
+ 
     if(config.charset != undefined && config.charset != null && config.charset != ""){
     	charset = config.charset;
     }
