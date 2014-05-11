@@ -7,6 +7,14 @@
 */
 (function(window){
 
+<<<<<<< HEAD
+=======
+	var jEventProxy = function(e) {
+		var crossEvent = e ? e : global.event;
+		jEventProxy.callback(crossEvent);
+	}
+
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
 	var jceSelector = function(selector,context){
 
 		return new jceSelector.fn.init( selector, context );
@@ -88,6 +96,7 @@
 			return "";
 		},
 
+<<<<<<< HEAD
 		width : function() {
 			var args = arguments;
 			
@@ -109,6 +118,8 @@
 			return "";
 		},
 
+=======
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
 		val : function() {
 			var args = arguments;
 			
@@ -277,6 +288,10 @@
 				for (var i = 0,elemLength = elem.length; i < elemLength; i++) {
 					parent.insertBefore(elem[i], target[0].nextSibling);
 				};
+<<<<<<< HEAD
+=======
+
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
 			}
 			
 			return this;
@@ -347,6 +362,7 @@
 			return this;
 		},	
 		
+<<<<<<< HEAD
 		/**
 		* 부모 엘리먼트를 찾는다.
 		* @param obj DOM 객체 또는 _j객체
@@ -362,6 +378,8 @@
 			return _j(parent);
 		},	
 
+=======
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
 
 		/**
 		* 이벤트 등록
@@ -370,13 +388,23 @@
 		*/
 		bind : function(eventType, callback) {
 			if(typeof eventType == "string" && typeof callback == "function") {
+<<<<<<< HEAD
+=======
+				jEventProxy.callback = callback;
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
 				
 				this.each(function(i) {
 					(function(target, type) {
 						if(target.addEventListener) {
+<<<<<<< HEAD
 							target.addEventListener(type, callback, false);
 						} else if(target.attachEvent) {
 							target.attachEvent( "on" + type, callback);
+=======
+							target.addEventListener(type, jEventProxy, false);
+						} else if(target.attachEvent) {
+							target.attachEvent( "on" + type, jEventProxy);
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
 						}
 					})(this, eventType.toLowerCase());
 				});
@@ -391,15 +419,25 @@
 		* @param eventType 이벤트 명 on 글자를 붙이지 않는다 ex) click,mouseout
 		*	
 		*/
+<<<<<<< HEAD
 		unbind : function(eventType,callback) {
+=======
+		unbind : function(eventType) {
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
 
 			if(typeof eventType == "string") {
 				this.each(function(i) {
 					(function(target, type) {
 						if(target.detachEvent) {
+<<<<<<< HEAD
 							target.detachEvent("on" + type, callback);
 						} else {
 							target.removeEventListener(type, callback);
+=======
+							target.detachEvent("on" + type, jEventProxy);
+						} else {
+							target.removeEventListener(type, jEventProxy);
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
 						}
 					})(this, eventType.toLowerCase());
 				});

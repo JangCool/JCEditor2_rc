@@ -20,8 +20,13 @@ define([
 
 
     /*
+<<<<<<< HEAD
      * 에디터에서 해당 블럭의 포맷(html 형식)을 지정.
      */
+=======
+    * 에디터에서 해당 블럭의 포맷(html 형식)을 지정.
+    */
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
     Const.formatblock = {
             "p" : "기본 문단",
             "address" : "주소" ,
@@ -158,6 +163,7 @@ define([
         }
     };
 
+<<<<<<< HEAD
 
     Const.docType = {
         html4 : "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">",
@@ -165,6 +171,8 @@ define([
         html5 : "<!DOCTYPE html>"
     };
 
+=======
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
     return Const;
 
 });

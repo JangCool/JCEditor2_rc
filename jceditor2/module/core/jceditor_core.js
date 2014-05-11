@@ -6,18 +6,26 @@ define(
         JCEditor.config.home +"/module/jceditor_const",
         JCEditor.config.home +"/module/util/util",
         JCEditor.config.home +"/module/etc/jceditor_selection",
+<<<<<<< HEAD
         JCEditor.config.home +"/module/etc/jceditor_idbox",
         JCEditor.config.home +"/module/etc/jceditor_resizable",
         JCEditor.config.home +"/module/etc/jceditor_command"
+=======
+        JCEditor.config.home +"/module/etc/jceditor_idbox"
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
     ],
  function (
     _j,
     cst,
     util,
     Selection,
+<<<<<<< HEAD
     IdBox,
     Resizable,
     Command
+=======
+    IdBox
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
 ) { 
 
     function Editor (textArea,width,height,option) {
@@ -34,9 +42,12 @@ define(
         /* 에디터 내용을 편집 할 때 쓰이는 셀렉션 객체  */
         this.selection = new Selection(this.idbox);
 
+<<<<<<< HEAD
         /* 버튼 기능을 정의한다.  */
         this.command = new Command(this.idbox,this.selection);
 
+=======
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
         /** 전체 화면 모드일 때 이전 크기로 복원하기 위해 가로,세로 정보를 저장한다.**/            
         
         this.fullModeOffset = {
@@ -46,6 +57,7 @@ define(
             contentHeight : 0           
         };
 
+<<<<<<< HEAD
         var _init = (function(t){
           
             t.setEditBoxHeight();
@@ -129,6 +141,19 @@ define(
         return this.option.show;
     };
 
+=======
+    };
+
+    Editor.prototype.getConfig = function() {
+            console.log(util.txt.i18n(this.i18n.hello,"jangcool"));
+
+           this.selection.getSelection();
+           console.log(this.selection.selectionText)
+           this.selection.getFocus();
+
+        return this.option.show;
+    };
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
     Editor.prototype.getBrwoserType = function() {
         return util.browser.type;
     };

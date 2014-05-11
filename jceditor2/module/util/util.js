@@ -1,6 +1,10 @@
 define([ 
+<<<<<<< HEAD
     JCEditor.config.home +"/module/jceditor_const"
 ], function (cst) { 
+=======
+], function () { 
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
 
 /*  Util을 담아놓을 객체 생성
     JavaScript 기본 객체에 대한 기본 기능 변경 시 정의는 Util.js.method(), 
@@ -216,6 +220,7 @@ define([
                     return navigator.userLanguage;
                 }
             }
+<<<<<<< HEAD
         },
 
         getDocType : function(){
@@ -240,6 +245,9 @@ define([
         isHtml5 : function(strDocType){
             return ("<!DOCTYPE html>"== strDocType) ? true : false;
         }       
+=======
+        }
+>>>>>>> fe450dfa2be1acf3740cdddd377cf254674c63cd
     }
     return JCEditor.util = Util;
 
